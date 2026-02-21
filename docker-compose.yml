@@ -1,0 +1,84 @@
+services:
+  # Ollama LLM Service
+  ollama:
+    image: ollama/ollama:latest
+    container_name: agenticrag-ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "ollama list || exit 0"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+    networks:
+      - ragnet
+
+  # Model Initializer - SADECE İLK KURULUMDA ÇALIŞIR
+  ollama-init:
+    image: ollama/ollama:latest
+    container_name: agenticrag-ollama-init
+    profiles: ["init"]  # ← Sadece --profile init ile çalışır
+    depends_on:
+      ollama:
+        condition: service_healthy
+    environment:
+      - OLLAMA_HOST=http://ollama:11434
+    entrypoint: ["sh", "-c", "ollama pull llama3.1:8b"]
+    networks:
+      - ragnet
+
+  # Ana Uygulama
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: agenticrag-app
+    depends_on:
+      ollama:
+        condition: service_healthy
+    ports:
+      - "7860:7860"
+    environment:
+      - OLLAMA_HOST=http://ollama:11434
+      - OLLAMA_MODEL=llama3.1:8b
+      - EMBEDDING_MODEL=intfloat/multilingual-e5-large
+      - CUDA_VISIBLE_DEVICES=0
+      - CHROMA_PERSIST_DIR=/app/chroma_db
+      - DATA_DIR=/app/data
+      - HF_HOME=/app/.cache/huggingface
+      - GRADIO_SERVER_NAME=0.0.0.0
+      - GRADIO_SERVER_PORT=7860
+    volumes:
+      - ./data:/app/data
+      - ./chroma_db:/app/chroma_db
+      - ./app:/app/app                    # Kod değişiklikleri anında yansır
+      - huggingface_cache:/app/.cache/huggingface  # Model cache kalıcı
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    restart: unless-stopped
+    networks:
+      - ragnet
+
+networks:
+  ragnet:
+    driver: bridge
+
+volumes:
+  ollama_data:        # Ollama modelleri kalıcı
+  huggingface_cache:  # Embedding modeli kalıcı
