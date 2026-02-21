@@ -1,4 +1,4 @@
-# 🤖 Agentic RAG - Profesyonel Hukuki Analiz Sistemi
+# 🤖 Agentic RAG - Profesyonel Sözleşme Analiz Sistemi
 
 Bu proje; yerel (local-first), yüksek performanslı ve gizlilik odaklı bir **Agentic Retrieval-Augmented Generation (RAG)** sistemidir. Özellikle Türkçe sözleşmeler ve karmaşık hukuki metinler üzerinde yüksek doğruluk oranı ile analiz yapabilmek üzere "**Gen AI Reference Architecture**" (Brij Kishore Pandey) standartlarına uygun olarak geliştirilmiştir.
 
@@ -98,9 +98,6 @@ Sistem, farklı türdeki hukuki dökümanlar (Yazılım Sözleşmeleri ve Şirke
 
 ## ⚠️ Telif Hakkı ve Lisans (Copyright)
 
-**© 2024 Betül Cengiz - Tüm Hakları Saklıdır.**
+**© 2026 Betül Cengiz - Tüm Hakları Saklıdır.**
 
 Bu proje ticari veya bireysel olarak izinsiz kopyalanamaz, çoğaltılamaz ve ücretsiz olarak dağıtılamaz. Projenin kaynak kodlarının kullanımı ve paylaşımı tamamen geliştiricinin (Betül Cengiz) iznine tabidir. 
-
----
-*Geliştirici: Agentic RAG Team | Gen AI Reference Architecture tabanlı mimari yapı.*
