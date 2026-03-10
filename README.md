@@ -81,7 +81,7 @@ Sistem **Docker Compose** üzerinde, GPU hızlandırmalı (CUDA) olarak çalış
 | :--- | :--- | :--- |
 | **Bilgi Getirme Doğruluğu** | %90+ | Spesifik maddeleri ve tarafları bulma yeteneği. |
 | **Genel Özet Kalitesi** | %85+ | Sözleşmenin çekirdek risklerini ve kapsamını belirleme. |
-| **Yanıt Hızı** | 15-40ms (Token/s) | RTX 30/40 serisi GPU'larda anlık yanıt deneyimi. |
+| **Yanıt Hızı** | 45-80 sn (Toplam) | Modern NVIDIA GPU/CPU ortamında sorgu başına ortalama süre. |
 | **Halluciantion Rate** | <%5 | Prompt mühendisliği ile döküman dışı bilgi uydurma engellenmiştir. |
 
 ---
@@ -89,7 +89,3 @@ Sistem **Docker Compose** üzerinde, GPU hızlandırmalı (CUDA) olarak çalış
 ## 🔒 Güvenlik & Telif
 - **Gizlilik:** Sistem tamamen internetten bağımsız (offline) çalışabilir.
 - **© 2026 Betül Cengiz** - Tüm Hakları Saklıdır.
-
----
-> [!TIP]
-> Bu proje; hem teknik derinliği hem de uygulama kalitesiyle modern AI uygulama standartlarını karşılamak üzere tasarlanmıştır. CV'nizde "AI Engineer" veya "RAG Specialist" yetkinliklerinizi göstermek için mükemmel bir örnektir.
