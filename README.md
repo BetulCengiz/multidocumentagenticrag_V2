@@ -1,6 +1,6 @@
 # 🤖 Agentic RAG - Professional AI Contract Analysis System
 
-![Agentic RAG Banner](agentic_rag_banner_1773173159208.png)
+![Agentic RAG Banner](agentic_rag_banner.png)
 
 ## 📌 Özet
 Bu proje; yerel (local-first), yüksek performanslı ve gizlilik odaklı bir **Agentic Retrieval-Augmented Generation (RAG)** sistemidir. Özellikle Türkçe sözleşmeler, şirket ana sözleşmeleri ve karmaşık hukuki metinler üzerinde yüksek doğruluk oranı ile analiz yapabilmek üzere "**Gen AI Reference Architecture**" standartlarına uygun olarak modüler bir yapıda geliştirilmiştir.
